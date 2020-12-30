@@ -1,0 +1,181 @@
+// classes
+@import './layout/classes';
+
+body {
+  margin: 0;
+}
+
+.slides {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+.slide {
+  align-items: center;
+  background-color: #173e61;
+  color: #fff;
+  cursor: pointer;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  scrollbar-color: #c0c0c0 #d8d7d7;
+  scrollbar-width: thin;
+  transition: all 0.3s linear;
+  width: 100%;
+
+  &::-webkit-scrollbar-track {
+    background: #d8d7d7;
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-color: #d8d7d7;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 3px;
+  }
+
+  &:not(.slide-active) {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &:hover {
+    flex: 2;
+  }
+
+  &:not(.slide-deactivate):hover .intro h1 {
+    transform: scale(1.1);
+  }
+
+  &:hover .intro p {
+    opacity: 1;
+  }
+
+  &::after {
+    background-color: #fff;
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 0.09;
+    position: absolute;
+    top: 0;
+    transform: skew(-30deg) scale(1);
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    z-index: 1;
+  }
+
+  &:hover::after {
+    transform: skew(-40deg) scale(3);
+  }
+}
+
+.slide.slide-active {
+  cursor: auto;
+  flex: 30;
+  overflow: auto;
+  text-align: left;
+
+  .intro,
+  &::after {
+    display: none;
+  }
+
+  .content {
+    height: auto;
+    opacity: 1;
+  }
+}
+
+.slide.slide-deactivate .intro {
+  h1 {
+    font-size: 1vw;
+    transform: rotate(90deg);
+  }
+
+  p {
+    display: none;
+  }
+}
+
+.slide .intro {
+  text-align: center;
+
+  h1 {
+    font-size: 2vw;
+    transition: all 0.5s linear;
+  }
+
+  p {
+    opacity: 0;
+  }
+
+  h1,
+  p {
+    text-shadow: 1px 1px 2px #000;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+  }
+}
+
+.slide .content {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0 15px 15px;
+  transition: all 0.1s linear;
+}
+
+.slide .header {
+  cursor: pointer;
+  overflow: hidden;
+  padding-bottom: 10px;
+  position: relative;
+  text-align: center;
+
+  .close {
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 0;
+    position: relative;
+    top: -50px;
+    transition: all 0.1s linear;
+  }
+
+  h2 {
+    font-size: 3em;
+    margin: 2vh 0 0;
+    text-shadow: -2px 0 1px #000;
+    transition: all 0.1s linear;
+  }
+
+  .close::after {
+    background-color: #fff;
+    bottom: -1px;
+    content: '';
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  &:hover .close {
+    top: 15px;
+  }
+
+  &:hover h2 {
+    transform: scale(1.1);
+  }
+}
+
+.slide .body {
+  margin-top: 22px;
+}
