@@ -1,6 +1,10 @@
 {
   "name": "slides-html",
+<<<<<<< HEAD
   "version": "1.1.2",
+=======
+  "version": "1.2.1",
+>>>>>>> d07fa2c1780520455377acbb9d2936637d948d0a
   "description": "Toggle between Slides 😍",
   "scripts": {
     "server": "live-server",

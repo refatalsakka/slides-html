@@ -1,6 +1,9 @@
 // classes
 @import './layout/classes';
 
+// mixin
+@import './mixin/queries';
+
 body {
   margin: 0;
 }
@@ -9,6 +12,9 @@ body {
   display: flex;
   height: 100vh;
   justify-content: space-between;
+  @include medium() {
+    flex-direction: column;
+  }
 }
 
 .slide {
@@ -45,10 +51,16 @@ body {
     flex: 1;
     flex-direction: column;
     justify-content: center;
+    @include medium() {
+      flex: 2;
+    }
   }
 
   &:hover {
     flex: 2;
+    @include medium() {
+      flex: 3;
+    }
   }
 
   &:not(.slide-deactivate):hover .intro h1 {
@@ -71,6 +83,9 @@ body {
     transition: all 0.3s ease-in-out;
     width: 100%;
     z-index: 1;
+    @include medium() {
+      transform: skew(-60deg) scale(1);
+    }
   }
 
   &:hover::after {
@@ -99,6 +114,10 @@ body {
   h1 {
     font-size: 1vw;
     transform: rotate(90deg);
+    @include medium() {
+      font-size: 3vw;
+      transform: rotate(0);
+    }
   }
 
   p {
@@ -112,15 +131,21 @@ body {
   h1 {
     font-size: 2vw;
     transition: all 0.5s linear;
+    @include medium() {
+      font-size: 6vw;
+      transform: rotate(0);
+    }
   }
 
   p {
     opacity: 0;
+    @include medium() {
+      opacity: 1;
+    }
   }
 
   h1,
   p {
-    text-shadow: 1px 1px 2px #000;
     transition: all 0.3s ease-in-out;
     user-select: none;
   }
@@ -148,6 +173,9 @@ body {
     position: relative;
     top: -50px;
     transition: all 0.1s linear;
+    @include medium() {
+      top: 15px;
+    }
   }
 
   h2 {
