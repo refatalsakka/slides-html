@@ -1,13 +1,7 @@
 # Slides HTML
 
-[![version](https://img.shields.io/npm/v/slides-html.svg)](https://www.npmjs.com/package/slides-html) [![npm downloads](https://img.shields.io/npm/dm/slides-html.svg)](https://npm-stat.com/charts.html?package=slides-html&from=2020-12-30)
-
 [DEMO](https://refatalsakka.github.io/slides-html/)
 
-## Installation
-```sh
-npm i slides-html
-```
 ## Usage
 
 ### HTML
